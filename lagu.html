@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Qila - Valentine's Day</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ========== RESET & BASE ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Fredoka', sans-serif;
+            background: linear-gradient(135deg, #ffd4e5 0%, #ffb8d1 50%, #ffa3be 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* ========== MAIN CONTAINER ========== */
+        .valentine-container {
+            background: #ffffff;
+            border-radius: 35px;
+            padding: 30px;
+            max-width: 900px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(200, 80, 120, 0.2);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            position: relative;
+        }
+
+        /* ========== LEFT SECTION - FLOWER ILLUSTRATION ========== */
+        .flower-section {
+            background: linear-gradient(135deg, #e89aaf 0%, #d98ca0 100%);
+            border-radius: 25px;
+            padding: 40px 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(232, 154, 175, 0.3);
+        }
+
+        /* Cloud decoration */
+        .clouds {
+            position: absolute;
+            top: 20px;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            z-index: 1;
+        }
+
+        .cloud {
+            width: 80px;
+            height: 40px;
+            background: #e0f5ff;
+            border-radius: 50px;
+            position: relative;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .cloud::before {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: #e0f5ff;
+            border-radius: 50%;
+            top: -20px;
+            left: 10px;
+        }
+
+        .cloud::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: #e0f5ff;
+            border-radius: 50%;
+            top: -15px;
+            right: 10px;
+        }
+
+        /* Flower vase container */
+        .flower-vase-container {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        /* Flowers */
+        .flowers {
+            position: relative;
+            width: 150px;
+            height: 120px;
+            margin-bottom: -20px;
+            z-index: 3;
+        }
+
+        .flower {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Flower petals */
+        .flowers {
+            position: relative;
+            width: 160px;
+            height: 120px;
+            margin-bottom: -20px;
+            z-index: 3;
+        }
+
+        /* FOTO BUNGA */
+        .flower-img {
+            position: absolute;
+            width: 55px;
+            height: 55px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid #fff;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+            background: white;
+        }
+
+        /* Center of flower */
+        .flower-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 12px;
+            height: 12px;
+            background: white;
+            border-radius: 50%;
+            z-index: 2;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* POSISI BUNGA (RAMAI & NUMPUK) */
+        .f1 {
+            top: 10px;
+            left: 10px;
+            transform: rotate(-10deg);
+        }
+
+        .f2 {
+            top: 0;
+            left: 50px;
+            transform: rotate(5deg);
+        }
+
+        .f3 {
+            top: 12px;
+            right: 10px;
+            transform: rotate(12deg);
+        }
+
+        .f4 {
+            top: 40px;
+            left: 30px;
+            transform: rotate(-5deg);
+        }
+
+        .f5 {
+            top: 42px;
+            right: 30px;
+            transform: rotate(8deg);
+        }
+
+        /* Flower stems */
+        .stem {
+            position: absolute;
+            width: 4px;
+            height: 60px;
+            background: linear-gradient(to bottom, #7cb342 0%, #558b2f 100%);
+            bottom: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        /* Position flowers */
+        .flower:nth-child(1) {
+            top: 0;
+            left: 15px;
+            transform: rotate(-10deg);
+        }
+
+        .flower:nth-child(2) {
+            top: 5px;
+            left: 50px;
+            transform: rotate(5deg);
+        }
+
+        .flower:nth-child(3) {
+            top: 0;
+            right: 15px;
+            transform: rotate(10deg);
+        }
+
+        /* Vase */
+        .vase {
+            width: 120px;
+            height: 100px;
+            background: linear-gradient(135deg, #c62828 0%, #b71c1c 100%);
+            border-radius: 0 0 60px 60px;
+            position: relative;
+            box-shadow: 0 8px 20px rgba(198, 40, 40, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+        }
+
+        .vase::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 30px;
+            background: linear-gradient(135deg, #d32f2f 0%, #c62828 100%);
+            border-radius: 15px 15px 0 0;
+        }
+
+        .vase-text {
+            font-size: 18px;
+            font-weight: 700;
+            color: white;
+            text-align: center;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ========== RIGHT SECTION - MUSIC PLAYER ========== */
+        .music-section {
+            background: linear-gradient(135deg, #e89aaf 0%, #d98ca0 100%);
+            border-radius: 25px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            box-shadow: 0 8px 20px rgba(232, 154, 175, 0.3);
+        }
+
+        /* Video player area */
+        .video-player {
+            border-radius: 20px;
+            overflow: hidden;
+            aspect-ratio: 16/9;
+            background: #000;
+        }
+
+        .video-player img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.5s ease;
+            /* halus pas ganti */
+        }
+
+        /* Music controls container */
+        .music-controls {
+            background: linear-gradient(135deg, #d32f2f 0%, #c62828 100%);
+            border-radius: 20px;
+            padding: 25px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 5px 15px rgba(211, 47, 47, 0.3);
+        }
+
+        /* Control buttons container */
+        .control-buttons {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            width: 100%;
+        }
+
+        /* Previous and Next buttons */
+        .control-btn {
+            width: 35px;
+            height: 35px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .progress-fill {
+            transition: width 0.3s linear;
+            /* bikin gerak halus */
+        }
+
+        .progress-handle {
+            transition: left 0.3s linear;
+        }
+
+        .control-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+        }
+
+        .control-btn::before {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-style: solid;
+        }
+
+        /* Previous icon */
+        .control-btn.prev::before {
+            border-width: 8px 12px 8px 0;
+            border-color: transparent white transparent transparent;
+            margin-right: 3px;
+        }
+
+        .control-btn.prev::after {
+            content: '';
+            position: absolute;
+            width: 3px;
+            height: 16px;
+            background: white;
+            left: 8px;
+        }
+
+        /* Next icon */
+        .control-btn.next::before {
+            border-width: 8px 0 8px 12px;
+            border-color: transparent transparent transparent white;
+            margin-left: 3px;
+        }
+
+
+
+        .control-btn.next::after {
+            content: '';
+            position: absolute;
+            width: 3px;
+            height: 16px;
+            background: white;
+            right: 8px;
+        }
+
+        /* Play button */
+        .play-btn {
+            width: 60px;
+            height: 60px;
+            background: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        /* PAUSE ICON */
+        .play-btn.pause::before {
+            content: '';
+            width: 14px;
+            height: 18px;
+            border-left: 5px solid #d32f2f;
+            border-right: 5px solid #d32f2f;
+            border-top: none;
+            border-bottom: none;
+            margin-left: 0;
+        }
+
+
+        .play-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .play-btn::before {
+            content: '';
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 12px 0 12px 20px;
+            border-color: transparent transparent transparent #d32f2f;
+            margin-left: 4px;
+        }
+
+        /* Progress bar */
+        .song-title {
+            text-align: center;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            background: linear-gradient(45deg, #ff6f91, #ff9671, #ffc75f);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            transition: opacity 0.4s ease;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 2px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .progress-fill {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 30%;
+            background: white;
+            border-radius: 2px;
+            transition: width 0.3s ease;
+        }
+
+        .progress-handle {
+            position: absolute;
+            top: 50%;
+            left: 30%;
+            transform: translate(-50%, -50%);
+            width: 12px;
+            height: 12px;
+            background: white;
+            border-radius: 50%;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        /* ========== RESPONSIVE DESIGN ========== */
+
+        /* Mobile First - Stack vertically */
+        @media (max-width: 768px) {
+            .valentine-container {
+                grid-template-columns: 1fr;
+                padding: 20px;
+                border-radius: 25px;
+            }
+
+            .flower-section {
+                padding: 30px 20px;
+            }
+
+            .music-section {
+                padding: 20px;
+            }
+
+            .flowers {
+                width: 130px;
+                height: 100px;
+            }
+
+            .flower {
+                width: 45px;
+                height: 45px;
+            }
+
+            .vase {
+                width: 100px;
+                height: 85px;
+            }
+
+            .vase-text {
+                font-size: 16px;
+            }
+
+            .cloud {
+                width: 60px;
+                height: 30px;
+            }
+
+            .cloud::before {
+                width: 40px;
+                height: 40px;
+            }
+
+            .cloud::after {
+                width: 30px;
+                height: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+
+            .valentine-container {
+                padding: 15px;
+                gap: 15px;
+            }
+
+            .flower-section,
+            .music-section {
+                border-radius: 20px;
+                padding: 20px 15px;
+            }
+
+            .music-controls {
+                padding: 20px 15px;
+            }
+
+            .control-buttons {
+                gap: 20px;
+            }
+
+            .play-btn {
+                width: 55px;
+                height: 55px;
+            }
+        }
+
+        /* Animation for flower petals */
+        @keyframes petalGrow {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .petal {
+            animation: petalGrow 3s ease-in-out infinite;
+        }
+
+        .flower:nth-child(1) .petal {
+            animation-delay: 0s;
+        }
+
+        .flower:nth-child(2) .petal {
+            animation-delay: 0.5s;
+        }
+
+        .flower:nth-child(3) .petal {
+            animation-delay: 1s;
+        }
+
+        /* ===== FIX PETAL FOTO MELINGKAR ===== */
+
+        .flower {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+        }
+
+        .petal {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            top: 50%;
+            left: 50%;
+            transform-origin: center;
+            animation: none;
+            /* MATIKAN transform animation */
+        }
+
+        /* POSISI MELINGKAR */
+        .petal:nth-child(1) {
+            transform: translate(-50%, -50%) rotate(0deg) translate(24px);
+        }
+
+        .petal:nth-child(2) {
+            transform: translate(-50%, -50%) rotate(72deg) translate(24px);
+        }
+
+        .petal:nth-child(3) {
+            transform: translate(-50%, -50%) rotate(144deg) translate(24px);
+        }
+
+        .petal:nth-child(4) {
+            transform: translate(-50%, -50%) rotate(216deg) translate(24px);
+        }
+
+        .petal:nth-child(5) {
+            transform: translate(-50%, -50%) rotate(288deg) translate(24px);
+        }
+
+        .petal img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
+        }
+
+        /* Back Button */
+        .back-button {
+            position: absolute;
+            margin-top: 1vh;
+            left: 30px;
+            background: linear-gradient(135deg, #ca1b50, #ff6f9f);
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 600;
+            box-shadow: 0 6px 15px rgba(255, 111, 159, 0.4);
+            transition: all 0.3s ease;
+            z-index: 20;
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(255, 111, 159, 0.6);
+        }
+
+        .back-button:active {
+            transform: translateY(0);
+        }
+
+        .judul-lagu {
+            width: 100%;
+            max-width: 100%;
+            padding: 20px 16px;
+            margin: 0 auto 30px;
+            text-align: center;
+
+            background: linear-gradient(135deg, #ffe0ea, #ffd1e1);
+            border-radius: 18px;
+            box-shadow: 0 10px 25px rgba(255, 92, 138, 0.25);
+        }
+
+        .judul-lagu h1 {
+            font-size: 32px;
+            color: #ff4d7a;
+            margin-bottom: 8px;
+            text-shadow: 0 4px 12px rgba(255, 77, 122, 0.4);
+        }
+
+        .judul-lagu p {
+            margin: 0;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .judul-lagu span {
+            display: block;
+            font-weight: 600;
+            color: #ff2f6d;
+        }
+
+        .judul-lagu small {
+            font-size: 15px;
+            color: #ff6f95;
+        }
+
+        .arti-lagu {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .arti-lagu h1 {
+            text-align: center;
+            font-size: 28px;
+            color: #ff4d7a;
+            margin-bottom: 25px;
+            text-shadow: 0 3px 10px rgba(255, 77, 122, 0.4);
+        }
+
+        /* CARD UMUM */
+        .arti-card {
+            width: 100%;
+            padding: 22px;
+            margin-bottom: 20px;
+            border-radius: 20px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .arti-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .arti-card h2 {
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        .arti-card p {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #444;
+        }
+
+        /* VARIASI WARNA (BISA DIGANTI) */
+        .arti-card.pink {
+            background: linear-gradient(135deg, #ffe0ea, #ffd1e1);
+        }
+
+        .arti-card.peach {
+            background: linear-gradient(135deg, #fff1dc, #ffe0c2);
+        }
+
+        .arti-card.fade {
+            animation: fadeUp 0.5s ease;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <!-- Main Valentine Container -->
+    <div class="valentine-container">
+
+        <a href="iya.html" class="back-button">← Kembali</a>
+
+        <!-- LEFT SECTION - Flower Illustration -->
+        <div class="flower-section" style="margin-top: 20px;">
+            <div class="judul-lagu">
+                <h1>Spesial Lagu for Qila </h1>
+                <p>
+                    <span>“Sampai Jadi Debu & Kita Usahakan Rumah itu”</span> <br>
+                    <small>– pernah bilang kalo nyetel ini harus inget qila, Toty jadi suka
+                        sama lagunya tauu biar inget qila terus. 2 lagu favorite sekarang karena
+                        lagu ini juga punya makna yang dalam -</small>
+                </p>
+            </div>
+            <!-- Decorative Clouds -->
+            <div class="clouds">
+                <div class="cloud"></div>
+                <div class="cloud"></div>
+            </div>
+
+            <!-- Flower Vase Container -->
+            <div class="flower-vase-container">
+                <!-- Flowers -->
+                <div class="flowers">
+                    <!-- Flower 1 -->
+                    <div class="flower">
+                        <div class="petal"><img
+                                src="assetbunga/image1.jpeg">
+                        </div>
+                        <div class="petal"><img
+                                src="assetbunga/image2.jpeg">">
+                        </div>
+                        <div class="petal"><img
+                                src="assetbunga/image3.jpeg">">
+                        </div>
+                        <div class="petal"><img
+                                src="assetbunga/image4.jpeg">">
+                        </div>
+                        <div class="petal"><img
+                                src="assetbunga/image5.jpeg">">
+                        </div>
+
+                        <div class="flower-center"></div>
+                        <div class="stem"></div>
+                    </div>
+
+                    <!-- Flower 2 -->
+                    <div class="flower">
+                        <div class="petal"><img
+                                src="assetbunga/image6.jpeg">">
+                        </div>
+                        <div class="petal"><img
+                                src="assetbunga/image7.jpeg">">
+                        </div>
+                        <div class="petal"><img
+                                src="assetbunga/image8.jpeg">">
+                        </div>
+                        <div class="petal"><img
+                                src="assetbunga/image9.jpeg">">
+                        </div>
+                        <div class="petal"><img
+                                src="assetbunga/image10.jpeg">">
+                        </div>
+
+                        <div class="flower-center"></div>
+                        <div class="stem"></div>
+                    </div>
+
+                    <!-- Flower 3 -->
+                    <div class="flower">
+                        <div class="petal"><img
+                                src="assetbunga/image11.jpeg">">
+                        </div>
+                        <div class="petal"><img
+                                src="assetbunga/image12.jpeg">">
+                        </div>
+                        <div class="petal"><img
+                                src="assetbunga/image13.jpeg">">
+                        </div>
+                        <div class="petal"><img
+                                src="assetbunga/image14.jpeg">">
+                        </div>
+                        <div class="petal"><img
+                                src="assetbunga/image15.jpeg">">
+                        </div>
+
+                        <div class="flower-center"></div>
+                        <div class="stem"></div>
+                    </div>
+                </div>
+
+                <!-- Vase with Text -->
+                <div class="vase">
+                    <div class="vase-text">Bunga QIla</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT SECTION - Music Player -->
+        <div class="music-section">
+            <!-- Video Player Area -->
+            <div class="video-player">
+                <img id="songCover" src="image/gambar1.jpg" alt="Cover Lagu">
+            </div>
+
+            <audio id="bgMusic">
+
+            </audio>
+            <!-- Music Controls -->
+            <div class="music-controls">
+
+                <div class="song-title" id="songTitle">
+                    Kita usahakan rumah itu
+                </div>
+                <!-- Control Buttons -->
+                <div class="control-buttons">
+                    <button class="control-btn prev" aria-label="Previous"></button>
+                    <button class="play-btn" aria-label="Play"></button>
+                    <button class="control-btn next" aria-label="Next"></button>
+                </div>
+
+                <!-- Progress Bar -->
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                    <div class="progress-handle"></div>
+                </div>
+            </div>
+
+            <!-- Card Lagu 1 -->
+            <div class="arti-lagu">
+                
+                <div id="artiCard" class="arti-card pink">
+                    <h1>Arti Lagu</h1>
+                    <h2 id="artiTitle">🎶 Sampai Jadi Debu</h2>
+                    <p id="artiText">
+                        Makna lagu akan muncul otomatis sesuai lagu yang diputar.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        const music = document.getElementById("bgMusic");
+        const playBtn = document.querySelector(".play-btn");
+        const prevBtn = document.querySelector(".control-btn.prev");
+        const nextBtn = document.querySelector(".control-btn.next");
+        const progressFill = document.querySelector(".progress-fill");
+        const progressHandle = document.querySelector(".progress-handle");
+        const cover = document.getElementById("songCover");
+        const artiCard = document.getElementById("artiCard");
+        const artiTitle = document.getElementById("artiTitle");
+        const artiText = document.getElementById("artiText");
+
+        const playlist = [
+            {
+                src: "usahakan.mp3",
+                cover: "image/gambar1.png",
+                title: "Kita Usahakan Rumah itu",
+                theme: "peach",
+                meaning: "Perjuangan bersama untuk mencapai rumah tangga dan hubungan yang harmonis, Kita Usahakan Rumah Itu Qilaa??"
+            },
+            {
+                src: "banda.mp3",
+                cover: "image/gambar2.png",
+                title: "Sampai Jadi Debu",
+                theme: "pink",
+                meaning: "Lagu ini menggambarkan cinta yang setia dan bertahan sampai akhir, meskipun sakit, rapuh, dan penuh pengorbanan."
+            }
+        ];
+
+        let currentSong = 0;
+        let isPlaying = false;
+
+        const titleEl = document.getElementById("songTitle");
+
+        function loadSong(index) {
+            music.src = playlist[index].src;
+
+            // ganti cover
+            cover.style.opacity = 0;
+            setTimeout(() => {
+                cover.src = playlist[index].cover;
+                cover.style.opacity = 1;
+            }, 200);
+
+            // ganti judul lagu
+            titleEl.style.opacity = 0;
+            setTimeout(() => {
+                titleEl.textContent = playlist[index].title;
+                titleEl.style.opacity = 1;
+            }, 200);
+
+            // ===== GANTI ARTI LAGU =====
+            artiCard.classList.remove("pink", "peach");
+            void artiCard.offsetWidth; // reset animasi
+            artiCard.classList.add(playlist[index].theme, "fade");
+
+            artiTitle.textContent = playlist[index].title;
+            artiText.textContent = playlist[index].meaning;
+
+            music.load();
+        }
+
+        // PLAY / PAUSE
+        function togglePlay() {
+            if (!isPlaying) {
+                music.play();
+                playBtn.classList.add("pause");
+                isPlaying = true;
+            } else {
+                music.pause();
+                playBtn.classList.remove("pause");
+                isPlaying = false;
+            }
+        }
+
+        // NEXT
+        function nextSong() {
+            currentSong = (currentSong + 1) % playlist.length;
+            loadSong(currentSong);
+            music.play();
+            playBtn.classList.add("pause");
+            isPlaying = true;
+        }
+
+        // PREV
+        function prevSong() {
+            currentSong = (currentSong - 1 + playlist.length) % playlist.length;
+            loadSong(currentSong);
+            music.play();
+            playBtn.classList.add("pause");
+            isPlaying = true;
+        }
+
+        // PROGRESS BAR
+        music.addEventListener("timeupdate", () => {
+            if (!music.duration) return;
+            const percent = (music.currentTime / music.duration) * 100;
+            progressFill.style.width = percent + "%";
+            progressHandle.style.left = percent + "%";
+        });
+
+        // AUTO NEXT
+        music.addEventListener("ended", nextSong);
+
+        // EVENT
+        playBtn.addEventListener("click", togglePlay);
+        nextBtn.addEventListener("click", nextSong);
+        prevBtn.addEventListener("click", prevSong);
+
+        // LOAD AWAL
+        loadSong(currentSong);
+    </script>
+
+
+</body>
+
+</html>

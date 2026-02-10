@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Qila - Valentine's Day</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Satisfy&family=Poppins:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ffe4ec 0%, #ffd4e0 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .card-container {
+            width: 100%;
+            max-width: 1200px;
+            aspect-ratio: 16/9;
+            background: linear-gradient(to bottom right, #ffffff 0%, #fff8fa 100%);
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(200, 90, 120, 0.25);
+            border: 8px solid #ffc9d9;
+            display: flex;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Left Side - Text Area */
+        .text-section {
+            flex: 1;
+            padding: 60px 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .card-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            font-weight: 700;
+            color: #c85a7a;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-top: 80px;
+        }
+
+        .card-paragraph {
+            font-family: 'Poppins', sans-serif;
+            font-size: 15px;
+            line-height: 1.8;
+            color: #7a5a68;
+            margin-bottom: 20px;
+            text-align: justify;
+            font-weight: 300;
+        }
+
+        .card-signature {
+            font-family: 'Satisfy', cursive;
+            font-size: 22px;
+            color: #c85a7a;
+            margin-top: 10px;
+            text-align: left;
+        }
+
+        .signature-line {
+            font-family: 'Poppins', sans-serif;
+            font-size: 17px;
+            color: #361826;
+            font-weight: 400;
+            margin-bottom: 3px;
+        }
+
+        /* Right Side - Illustration Area */
+        .illustration-section {
+            flex: 1;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(255, 230, 240, 0.3) 0%, rgba(255, 210, 230, 0.2) 100%);
+        }
+
+        /* Heart Balloon */
+        .heart-balloon {
+            position: absolute;
+            top: 40px;
+            right: 80px;
+            width: 140px;
+            height: 140px;
+            z-index: 5;
+        }
+
+        .balloon-heart {
+            width: 140px;
+            height: 130px;
+            background: linear-gradient(135deg, #ff6b9d 0%, #ff5a8f 100%);
+            position: relative;
+            border-radius: 50% 50% 0 0;
+            transform: rotate(-45deg);
+            box-shadow: 0 10px 30px rgba(255, 107, 157, 0.4);
+        }
+
+        .balloon-heart::before,
+        .balloon-heart::after {
+            content: '';
+            position: absolute;
+            width: 140px;
+            height: 130px;
+            background: linear-gradient(135deg, #ff6b9d 0%, #ff5a8f 100%);
+            border-radius: 50% 50% 0 0;
+        }
+
+        .balloon-heart::before {
+            transform: rotate(-90deg);
+        }
+
+        .balloon-heart::after {
+            transform: rotate(0deg);
+        }
+
+        .balloon-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(45deg);
+            background: white;
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-family: 'Satisfy', cursive;
+            font-size: 14px;
+            color: #ff5a8f;
+            font-weight: 600;
+            padding: 10px;
+            border: 3px solid #ff6b9d;
+            z-index: 10;
+            line-height: 1.2;
+        }
+
+        .balloon-string {
+            position: absolute;
+            bottom: -60px;
+            left: 50%;
+            transform: translateX(-50%) rotate(45deg);
+            width: 2px;
+            height: 80px;
+            background: linear-gradient(to bottom, #ff6b9d, transparent);
+        }
+
+        /* Rose Bouquet */
+        .rose-bouquet {
+            position: absolute;
+            top: 120px;
+            right: 100px;
+            width: 120px;
+            height: 180px;
+            z-index: 4;
+        }
+
+        .bouquet-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .rose {
+            position: absolute;
+            width: 35px;
+            height: 35px;
+            background: radial-gradient(circle at 30% 30%, #ff4466, #cc1133);
+            border-radius: 50% 50% 50% 0;
+            box-shadow: 0 5px 15px rgba(255, 68, 102, 0.4);
+        }
+
+        .rose::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 15px;
+            height: 15px;
+            background: #ff6688;
+            border-radius: 50%;
+        }
+
+        .rose:nth-child(1) {
+            top: 0;
+            left: 35px;
+            transform: rotate(-20deg);
+        }
+
+        .rose:nth-child(2) {
+            top: 15px;
+            left: 10px;
+            transform: rotate(30deg);
+        }
+
+        .rose:nth-child(3) {
+            top: 15px;
+            right: 10px;
+            transform: rotate(-45deg);
+        }
+
+        .rose:nth-child(4) {
+            top: 35px;
+            left: 25px;
+            transform: rotate(15deg);
+        }
+
+        .rose:nth-child(5) {
+            top: 35px;
+            right: 20px;
+            transform: rotate(-10deg);
+        }
+
+        .rose:nth-child(6) {
+            top: 55px;
+            left: 35px;
+            transform: rotate(40deg);
+        }
+
+        .bouquet-stem {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 90px;
+            background: linear-gradient(to bottom, #8bc34a, #689f38);
+            clip-path: polygon(40% 0, 60% 0, 70% 100%, 30% 100%);
+        }
+
+        .bouquet-ribbon {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 12px;
+            background: #ff8fab;
+            border-radius: 2px;
+        }
+
+        .bouquet-ribbon::before,
+        .bouquet-ribbon::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 20px;
+            height: 15px;
+            background: #ff8fab;
+            border-radius: 0 50% 50% 0;
+        }
+
+        .bouquet-ribbon::before {
+            left: -15px;
+            transform: translateY(-50%) rotate(180deg);
+        }
+
+        .bouquet-ribbon::after {
+            right: -15px;
+            transform: translateY(-50%);
+        }
+
+        /* Leaves decoration */
+        .leaf {
+            position: absolute;
+            width: 20px;
+            height: 30px;
+            background: #7cb342;
+            border-radius: 0 50% 50% 50%;
+            transform: rotate(45deg);
+        }
+
+        .leaf:nth-child(7) {
+            top: 20px;
+            left: 5px;
+            transform: rotate(-30deg);
+            opacity: 0.8;
+        }
+
+        .leaf:nth-child(8) {
+            top: 40px;
+            right: 0;
+            transform: rotate(50deg);
+            opacity: 0.7;
+        }
+
+        .leaf:nth-child(9) {
+            top: 60px;
+            left: 0;
+            transform: rotate(-15deg);
+            opacity: 0.6;
+        }
+
+        /* Teddy Bear */
+        .teddy-bear {
+            position: absolute;
+            bottom: 80px;
+            right: 200px;
+            width: 100px;
+            height: 120px;
+            z-index: 3;
+        }
+
+        .bear-body {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 75px;
+            background: linear-gradient(135deg, #ffe4e4 0%, #ffd4d4 100%);
+            border-radius: 50% 50% 40% 40%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .bear-head {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #ffe4e4 0%, #ffd4d4 100%);
+            border-radius: 50%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .bear-ear {
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background: #ffe4e4;
+            border-radius: 50%;
+            top: -5px;
+        }
+
+        .bear-ear:first-of-type {
+            left: -5px;
+        }
+
+        .bear-ear:last-of-type {
+            right: -5px;
+        }
+
+        .bear-ear::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 12px;
+            height: 12px;
+            background: #ffb4b4;
+            border-radius: 50%;
+        }
+
+        .bear-face {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .bear-eye {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: #333;
+            border-radius: 50%;
+            top: 15px;
+        }
+
+        .bear-eye:first-of-type {
+            left: 12px;
+        }
+
+        .bear-eye:last-of-type {
+            right: 12px;
+        }
+
+        .bear-nose {
+            position: absolute;
+            top: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 8px;
+            height: 6px;
+            background: #333;
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+        }
+
+        .bear-mouth {
+            position: absolute;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 12px;
+            height: 8px;
+            border: 2px solid #333;
+            border-top: none;
+            border-radius: 0 0 50% 50%;
+        }
+
+        .bear-bow {
+            position: absolute;
+            top: 10px;
+            left: -8px;
+            width: 20px;
+            height: 12px;
+            background: #ff6b9d;
+            clip-path: polygon(0 50%, 30% 0, 70% 0, 100% 50%, 70% 100%, 30% 100%);
+        }
+
+        /* Chocolate Box */
+        .chocolate-box {
+            position: absolute;
+            bottom: 40px;
+            right: 70px;
+            width: 140px;
+            height: 50px;
+            z-index: 2;
+        }
+
+        .box-bottom {
+            position: absolute;
+            bottom: 0;
+            width: 140px;
+            height: 35px;
+            background: linear-gradient(135deg, #d32f2f 0%, #c62828 100%);
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(211, 47, 47, 0.3);
+        }
+
+        .box-top {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 40px;
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            border-radius: 10px 10px 5px 5px;
+            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
+            transform-origin: bottom center;
+        }
+
+        .box-ribbon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 8px;
+            background: #ffd700;
+        }
+
+        .box-bow {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 20px;
+            background: #ffd700;
+            border-radius: 50%;
+        }
+
+        .box-bow::before,
+        .box-bow::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 25px;
+            height: 20px;
+            background: #ffd700;
+            border-radius: 50%;
+            transform: translateY(-50%);
+        }
+
+        .box-bow::before {
+            left: -20px;
+        }
+
+        .box-bow::after {
+            right: -20px;
+        }
+
+        .chocolate {
+            position: absolute;
+            bottom: 5px;
+            width: 18px;
+            height: 18px;
+            border-radius: 3px;
+        }
+
+        .chocolate:nth-child(1) {
+            left: 15px;
+            background: #8b4513;
+        }
+
+        .chocolate:nth-child(2) {
+            left: 38px;
+            background: #d2691e;
+        }
+
+        .chocolate:nth-child(3) {
+            left: 61px;
+            background: #8b4513;
+        }
+
+        .chocolate:nth-child(4) {
+            left: 84px;
+            background: #f5deb3;
+        }
+
+        .chocolate:nth-child(5) {
+            right: 15px;
+            background: #d2691e;
+        }
+
+        /* Floating hearts decoration */
+        .floating-heart {
+            position: absolute;
+            font-size: 20px;
+            opacity: 0.2;
+            animation: floatHeart 4s ease-in-out infinite;
+        }
+
+        .floating-heart:nth-child(1) {
+            top: 10%;
+            left: 45%;
+            animation-delay: 0s;
+        }
+
+        .floating-heart:nth-child(2) {
+            top: 70%;
+            left: 15%;
+            animation-delay: 1s;
+            font-size: 25px;
+        }
+
+        .floating-heart:nth-child(3) {
+            bottom: 15%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+
+        @keyframes floatHeart {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-15px) rotate(10deg);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .card-container {
+                flex-direction: column;
+                aspect-ratio: auto;
+                max-width: 700px;
+            }
+
+            .text-section {
+                padding: 40px 35px;
+            }
+
+            .card-title {
+                font-size: 28px;
+            }
+
+            .card-paragraph {
+                font-size: 14px;
+            }
+
+            .illustration-section {
+                min-height: 400px;
+            }
+
+            .heart-balloon {
+                top: 30px;
+                right: 50px;
+                transform: scale(0.9);
+            }
+
+            .rose-bouquet {
+                top: 100px;
+                right: 70px;
+                transform: scale(0.9);
+            }
+
+            .teddy-bear {
+                bottom: 60px;
+                right: 150px;
+                transform: scale(0.85);
+            }
+
+            .chocolate-box {
+                bottom: 30px;
+                right: 50px;
+                transform: scale(0.9);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .card-container {
+                border: 5px solid #ffc9d9;
+                border-radius: 20px;
+            }
+
+            .text-section {
+                padding: 30px 25px;
+            }
+
+            .card-title {
+                font-size: 24px;
+                margin-bottom: 20px;
+            }
+
+            .card-paragraph {
+                font-size: 13px;
+                line-height: 1.7;
+            }
+
+            .illustration-section {
+                min-height: 350px;
+            }
+
+            .heart-balloon {
+                top: 25px;
+                right: 40px;
+                transform: scale(0.75);
+            }
+
+            .rose-bouquet {
+                top: 80px;
+                right: 50px;
+                transform: scale(0.75);
+            }
+
+            .teddy-bear {
+                bottom: 50px;
+                right: 120px;
+                transform: scale(0.7);
+            }
+
+            .chocolate-box {
+                bottom: 25px;
+                right: 40px;
+                transform: scale(0.75);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .text-section {
+                padding: 25px 20px;
+            }
+
+            .card-title {
+                font-size: 20px;
+            }
+
+            .card-paragraph {
+                font-size: 12px;
+            }
+
+            .card-signature {
+                font-size: 18px;
+            }
+
+            .illustration-section {
+                min-height: 300px;
+            }
+
+            .heart-balloon,
+            .rose-bouquet,
+            .teddy-bear,
+            .chocolate-box {
+                transform: scale(0.6);
+            }
+
+        }
+
+        /* Back Button */
+        .back-button {
+            position: absolute;
+            top: 25px;
+            left: 30px;
+            background: linear-gradient(135deg, #ff8fb1, #ff6f9f);
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 600;
+            box-shadow: 0 6px 15px rgba(255, 111, 159, 0.4);
+            transition: all 0.3s ease;
+            z-index: 20;
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(255, 111, 159, 0.6);
+        }
+
+        .back-button:active {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card-container">
+        <a href="iya.html" class="back-button">← Kembali</a>
+        <!-- Left Side - Text Section -->
+        <div class="text-section">
+            <h1 class="card-title">Happy Valentine's Day, Love 💗💗</h1>
+
+            <p class="card-paragraph">
+                Qilaaaa toty bikin ini buat qila toty mau bilang makasih telah dateng ke hidup toty, kedunia toty. Qila
+                baik bikin hidup toty jadi berwarna dan hidup.
+                toty tuh ibarat tanah tandus qila jadi hujan menumbuhkan banyak tanaman banyak bunga yang bikin tanah
+                itu jadi hidup. qilaa makasih yaa💞💞
+                qila mau bertahan sama toty qila itu perempuan baikkkkk super duper baikkkk. qila cantik lucuu toty
+                bahkan kadang gabisa liat qila entah kenapa tuhh
+                liat qila bawaanya jadi salting terus ihhh. bahkan awal awal toty jalan sama qila tangan toty gemeter
+                apalagi pas ketahuan qila di gacoan pas ituu
+                ihhh malu banget sumpah haha. Makasihhh yaa mauu bertahan sama toty yang sering bikin qila kesepian
+                sering bikin qila sakit.
+            </p>
+
+            <p class="card-paragraph">
+                Toty gabakal ninggalin qila, toty sayang sama qilaa, jangan pernah bosen ama toty yaa. toty janjii
+                bakal jaga qila, nemenin qila, selalu jadi pelindung qila toty bakal jadi temang pertama kalo ada yang
+                 nyakitin qila siapa yang nyakitin qilaa bilang ama toty. qilaa sama toty terus yaa toty percaya sama qilaa 
+                 toty usahain apa aja buat qilaaa. Toty beruntung dapetin qilaa love youuu muchhh qilaaaa 💖💖💖
+            </p>
+
+            <div class="signature-line">From Spesial Person</div>
+            <div class="card-signature">The love of your life toty♡</div>
+        </div>
+
+        <!-- Right Side - Illustration Section -->
+        <div class="illustration-section">
+            <!-- Floating hearts decoration -->
+            <div class="floating-heart">💕</div>
+            <div class="floating-heart">💖</div>
+            <div class="floating-heart">💗</div>
+
+            <!-- Heart Balloon -->
+            <div class="heart-balloon">
+                <div class="balloon-heart">
+                    <div class="balloon-text">Happy<br>Valentine's<br>Day!</div>
+                </div>
+                <div class="balloon-string"></div>
+            </div>
+
+            <!-- Rose Bouquet -->
+            <div class="rose-bouquet">
+                <div class="bouquet-wrapper">
+                    <div class="rose"></div>
+                    <div class="rose"></div>
+                    <div class="rose"></div>
+                    <div class="rose"></div>
+                    <div class="rose"></div>
+                    <div class="rose"></div>
+                    <div class="leaf"></div>
+                    <div class="leaf"></div>
+                    <div class="leaf"></div>
+                    <div class="bouquet-stem"></div>
+                    <div class="bouquet-ribbon"></div>
+                </div>
+            </div>
+
+            <!-- Teddy Bear -->
+            <div class="teddy-bear">
+                <div class="bear-body"></div>
+                <div class="bear-head">
+                    <div class="bear-ear"></div>
+                    <div class="bear-ear"></div>
+                    <div class="bear-face">
+                        <div class="bear-eye"></div>
+                        <div class="bear-eye"></div>
+                        <div class="bear-nose"></div>
+                        <div class="bear-mouth"></div>
+                    </div>
+                    <div class="bear-bow"></div>
+                </div>
+            </div>
+
+            <!-- Chocolate Box -->
+            <div class="chocolate-box">
+                <div class="box-bottom">
+                    <div class="chocolate"></div>
+                    <div class="chocolate"></div>
+                    <div class="chocolate"></div>
+                    <div class="chocolate"></div>
+                    <div class="chocolate"></div>
+                </div>
+                <div class="box-top">
+                    <div class="box-ribbon"></div>
+                    <div class="box-bow"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
